@@ -14,7 +14,7 @@
   "scripts": {
     "rimraf": "rimraf",
     "tslint": "tslint",
-    "typings": "typings",
+    "typings": "node_modules/.bin/typings",
     "webpack": "webpack",
     "webpack-dev-server": "webpack-dev-server",
     "webdriver-manager": "webdriver-manager",

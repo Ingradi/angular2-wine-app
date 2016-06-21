@@ -6,7 +6,7 @@
   </paper-toolbar>
   <div class="app-content">
     <wine-filter #filter [query]="query" (onChanged)="searchWine($event)"></wine-filter>
-    <wine-list [wines]="wineList" (onSelected)="selectWine($event)" (onDeleted)="deleteWine($event)"></wine-list>
+    <wine-list class="layout horizontal wrap" [wines]="wineList" (onSelected)="selectWine($event)" (onDeleted)="deleteWine($event)"></wine-list>
     <wine-view [wine]="selectedWine" (onSave)="saveWine($event)"></wine-view>
     <wine-confirm-dialog title="Confirm deletion"></wine-confirm-dialog>
   </div>

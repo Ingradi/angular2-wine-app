@@ -1,6 +1,6 @@
 <paper-card *ngFor="let wine of wines; let i=index"
-            image="assets/images/{{wine.type}}-wine-small.png">
-  <div class="card-content">
+            image="assets/images/{{wine.type}}-wine-small.png" class="layout vertical">
+  <div class="card-content flex layout vertical">
     <div class="wine-header">
       {{wine.name}}
       <div class="wine-year">
@@ -11,7 +11,7 @@
       {{wine.type}}
       <div class="country">{{wine.country}}</div>
     </div>
-    <p class="description">
+    <p class="description flex self-stretch">
       {{wine.description}}
       <span *ngIf="hasNoDescription(wine)" class="empty">- no description -</span>
     </p>

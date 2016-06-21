@@ -31,6 +31,8 @@ import 'zone.js/dist/zone';
 // Typescript emit helpers polyfill
 import 'ts-helpers';
 
+import 'npm-polymer-elements/webcomponentsjs/webcomponents-lite';
+
 if ('production' === ENV) {
   // Production
 

@@ -1,0 +1,16 @@
+body {
+  font-family: 'Roboto', 'Noto',
+  sans-serif; -webkit-font-smoothing: antialiased;
+}
+
+.app-header-panel > .app-toolbar .title {
+  color: white
+}
+
+.app-header-panel > .app-toolbar paper-icon-button {
+  color: white;
+}
+
+.app-header-panel paper-fab {
+  position: relative; top: 30px; right: 20px; z-index: 10
+}

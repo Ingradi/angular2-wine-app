@@ -1,0 +1,10 @@
+<paper-dialog with-backdrop modal #dialog (iron-overlay-closed)="onClose($event)">
+  <h2>{{title}}</h2>
+  <div>
+    {{message}}
+  </div>
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm>Ok</paper-button>
+  </div>
+</paper-dialog>

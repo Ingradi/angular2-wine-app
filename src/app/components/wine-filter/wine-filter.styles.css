@@ -1,0 +1,13 @@
+:host > paper-dialog .content,
+:host > paper-dialog paper-menu {
+  width: 200px;
+}
+
+:host > .chips {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+:host > .chips > wine-filter-chip {
+  margin-right: 10px;
+}

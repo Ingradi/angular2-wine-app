@@ -1,0 +1,24 @@
+<paper-card *ngFor="let wine of wines; let i=index"
+    >
+  <!--image="http://loremflickr.com/365/100/wine?random={{i}}"-->
+  <div class="card-content">
+    <div class="wine-header">
+      {{wine.name}}
+      <div class="wine-year">
+        {{wine.year}}
+      </div>
+    </div>
+    <div class="secondary">
+      {{wine.type}}
+      <div class="country">{{wine.country}}</div>
+    </div>
+    <p class="description">
+      {{wine.description}}
+      <span *ngIf="hasNoDescription(wine)" class="empty">- no description -</span>
+    </p>
+  </div>
+  <div class="card-actions">
+    <paper-button (click)="onSelected.emit(wine)">Edit</paper-button>
+    <paper-button (click)="onDeleted.emit(wine)">Remove</paper-button>
+  </div>
+</paper-card>

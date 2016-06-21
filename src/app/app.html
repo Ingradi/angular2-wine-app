@@ -1,0 +1,13 @@
+<paper-header-panel class="app-header-panel flex">
+  <paper-toolbar class="app-toolbar">
+    <paper-icon-button icon="filter-list" (click)="filter.open()"></paper-icon-button>
+    <div class="title">My Wines</div>
+    <paper-fab mini icon="add" (click)="addWine()"></paper-fab>
+  </paper-toolbar>
+  <div style="margin-top:24px;margin-bottom:24px;">
+    <wine-filter #filter [query]="query$ | async" (onChanged)="searchWine($event)"></wine-filter>
+    <wine-list [wines]="wineList$ | async" (onSelected)="selectWine($event)" (onDeleted)="deleteWine($event)"></wine-list>
+    <wine-view [wine]="selectedWine$ | async" (onSave)="saveWine($event)"></wine-view>
+    <wine-confirm-dialog title="Confirm deletion"></wine-confirm-dialog>
+  </div>
+</paper-header-panel>

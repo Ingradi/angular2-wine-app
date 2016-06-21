@@ -1,0 +1,32 @@
+:host > div {
+  border-radius: 15px;
+  background-color: #eeeeee;
+  padding: 0px 10px;
+  line-height: 30px;
+  cursor: default;
+}
+
+:host iron-icon {
+  width: 14px;
+  height: 14px;
+  fill: white;
+  background-color: #9e9e9e;
+  border-radius: 9px;
+  padding: 2px;
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+:host > div:hover {
+  background-color: #9e9e9e;
+  color: white;
+}
+
+:host > div:hover iron-icon {
+  background-color: white;
+  fill: #9e9e9e;
+}
+
+:host .value {
+  font-weight: bold;
+}

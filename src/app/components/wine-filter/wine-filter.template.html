@@ -1,0 +1,28 @@
+<div class="layout horizontal chips">
+  <wine-filter-chip *ngFor="let item of queryFields" [label]="item.label" [value]="item.value" (onDelete)="onDeleteCriteria(item.key)"></wine-filter-chip>
+</div>
+<paper-dialog with-backdrop #dialog (iron-overlay-closed)="onClose($event)">
+  <h2>Search for wines</h2>
+  <div class="content layout vertical">
+    <form [formGroup]="model" #queryForm="ngForm">
+      <paper-input label="Name" formControlName="name" ngDefaultControl></paper-input>
+      <paper-input label="Country" formControlName="country" ngDefaultControl></paper-input>
+
+      <div class="flex horizontal layout">
+        <paper-dropdown-menu label="Type" class="flex">
+          <paper-menu class="dropdown-content" formControlName="type">
+            <paper-item id="red">red</paper-item>
+            <paper-item id="white">white</paper-item>
+            <paper-item id="rose">rose</paper-item>
+          </paper-menu>
+        </paper-dropdown-menu>
+      </div>
+      <paper-input type="number" label="Year" formControlName="year" ngDefaultControl step="1"></paper-input>
+    </form>
+  </div>
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button dialog-confirm>Search</paper-button>
+  </div>
+</paper-dialog>
+

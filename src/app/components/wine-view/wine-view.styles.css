@@ -1,0 +1,4 @@
+:host > paper-dialog .content,
+:host > paper-dialog paper-menu {
+  width: 270px;
+}

@@ -1,0 +1,40 @@
+:host > paper-card {
+  width: 365px;
+  margin: 10px;
+}
+
+:host .wine-header {
+  font-family: 'Roboto', 'Noto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -.012em;
+  line-height: 32px;
+}
+
+:host .wine-header > .wine-year {
+  float: right;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+:host .secondary {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  font-size: 15px;
+  vertical-align: middle;
+}
+:host .secondary > .country {
+  float: right;
+}
+
+:host .description > .empty {
+  color: #9e9e9e;
+}
+
+/*.cafe-light { color: var(--paper-grey-600); }*/
+/*.cafe-location {*/
+  /*float: right;*/
+  /*font-size: 15px;*/
+  /*vertical-align: middle;*/
+/*}*/

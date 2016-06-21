@@ -1,0 +1,33 @@
+<paper-dialog with-backdrop #dialog (iron-overlay-closed)="onClose($event)">
+  <h2>
+    <span *ngIf="isNew">Create new wine</span>
+    <span *ngIf="isNew === false">Edit wine</span>
+  </h2>
+  <div class="content layout vertical" *ngIf="model">
+    <form [formGroup]="model" #wineForm="ngForm">
+      <paper-input [invalid]="isInvalid('name')" error-message="Name is required"
+                   label="Name" formControlName="name" ngDefaultControl>
+      </paper-input>
+      <paper-input [invalid]="isInvalid('country')" error-message="Country is required"
+                   label="Country" formControlName="country" ngDefaultControl></paper-input>
+
+      <div class="flex horizontal layout">
+        <paper-dropdown-menu [invalid]="isInvalid('type')" error-message="Type is required"
+                             label="Type" class="flex">
+          <paper-menu class="dropdown-content" formControlName="type">
+            <paper-item id="red">red</paper-item>
+            <paper-item id="white">white</paper-item>
+            <paper-item id="rose">rose</paper-item>
+          </paper-menu>
+        </paper-dropdown-menu>
+      </div>
+      <paper-input [invalid]="isInvalid('year')" error-message="Year is required and must be a valid number"
+                   type="number" label="Year" formControlName="year" ngDefaultControl step="1"></paper-input>
+      <paper-textarea label="Description (optional)" formControlName="description" ngDefaultControl max-rows="5" rows="3"></paper-textarea>
+    </form>
+  </div>
+  <div class="buttons">
+    <paper-button dialog-dismiss>Cancel</paper-button>
+    <paper-button [disabled]="valid === false" dialog-confirm>Save</paper-button>
+  </div>
+</paper-dialog>

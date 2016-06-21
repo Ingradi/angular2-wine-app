@@ -45,5 +45,4 @@ export function main(initialHmrState?:any):Promise<any> {
  * Also see custom-typings.d.ts as you also need to do `typings install x` where `x` is your module
  */
 
-
-document.addEventListener('DOMContentLoaded', () => main());
+window.addEventListener('WebComponentsReady', () => main());

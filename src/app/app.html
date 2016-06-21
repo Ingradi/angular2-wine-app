@@ -2,12 +2,13 @@
   <paper-toolbar class="app-toolbar">
     <paper-icon-button icon="filter-list" (click)="filter.open()"></paper-icon-button>
     <div class="title">My Wines</div>
-    <paper-fab mini icon="add" (click)="addWine()"></paper-fab>
+    <paper-fab mini icon="add" [disabled]="loading$ | async" (click)="addWine()"></paper-fab>
   </paper-toolbar>
-  <div style="margin-top:24px;margin-bottom:24px;">
+  <div class="app-content">
     <wine-filter #filter [query]="query$ | async" (onChanged)="searchWine($event)"></wine-filter>
     <wine-list [wines]="wineList$ | async" (onSelected)="selectWine($event)" (onDeleted)="deleteWine($event)"></wine-list>
     <wine-view [wine]="selectedWine$ | async" (onSave)="saveWine($event)"></wine-view>
     <wine-confirm-dialog title="Confirm deletion"></wine-confirm-dialog>
   </div>
+  <div class="app-loader layout horizontal center-center" *ngIf="loading$ | async"><span class="flex">Searching for wines...</span></div>
 </paper-header-panel>

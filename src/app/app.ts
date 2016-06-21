@@ -1,6 +1,6 @@
 import {Component, ViewChild, ViewEncapsulation} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {AppState, getWines, getSelectedWine, getQuery} from './reducers';
+import {AppState, getWines, getSelectedWine, getQuery, isLoading} from './reducers';
 import {Observable} from 'rxjs/Rx';
 import {Wine} from './model/wine';
 import {WineActions} from './actions/wine-actions';
@@ -26,6 +26,7 @@ export class Application {
 	protected wineList$: Observable<Wine[]>;
 	protected selectedWine$: Observable<Wine>;
 	protected query$: Observable<WineQuery>;
+	protected loading$: Observable<boolean>;
 
 	@ViewChild(WineViewComponent) view: WineViewComponent;
 	@ViewChild(ConfirmDialogComponent) confirmDialog: ConfirmDialogComponent;
@@ -34,6 +35,7 @@ export class Application {
 		this.wineList$ = this._store.let(getWines());
 		this.selectedWine$ = this._store.let(getSelectedWine());
 		this.query$ = this._store.let(getQuery());
+		this.loading$ = this._store.let(isLoading());
 	}
 
 	selectWine(wine: Wine) {

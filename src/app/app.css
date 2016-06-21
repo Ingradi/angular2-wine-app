@@ -3,14 +3,32 @@ body {
   sans-serif; -webkit-font-smoothing: antialiased;
 }
 
-.app-header-panel > .app-toolbar .title {
+.app-toolbar .title {
   color: white
 }
 
-.app-header-panel > .app-toolbar paper-icon-button {
+.app-toolbar paper-icon-button {
   color: white;
 }
 
 .app-header-panel paper-fab {
   position: relative; top: 30px; right: 20px; z-index: 10
+}
+
+.app-content {
+  margin-top:24px;
+  margin-bottom:24px;
+}
+
+.app-loader {
+  background-color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 64px;
+}
+
+.app-loader > span {
+  text-align: center;
 }

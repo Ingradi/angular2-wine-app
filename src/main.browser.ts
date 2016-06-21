@@ -23,8 +23,7 @@ import {APPLICATION_SERVICES} from './app/services/index';
  * Bootstrap our Angular app with a top level component `App` and inject
  * our Services and Providers into Angular's dependency injection
  */
-export function main(initialHmrState?:any):Promise<any> {
-
+export function main():Promise<any> {
 	return bootstrap(Application, [
 		...PLATFORM_PROVIDERS,
 		...ENV_PROVIDERS,
@@ -44,7 +43,6 @@ export function main(initialHmrState?:any):Promise<any> {
  * You can also import them in vendors to ensure that they are bundled in one file
  * Also see custom-typings.d.ts as you also need to do `typings install x` where `x` is your module
  */
-
-window.addEventListener('WebComponentsReady', () => {
+window.addEventListener('WebComponentsReady', (e) => {
 	main();
 });

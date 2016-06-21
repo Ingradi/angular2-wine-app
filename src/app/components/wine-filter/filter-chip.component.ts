@@ -9,4 +9,8 @@ export class FilterChipComponent {
 	@Input() value: string;
 
 	@Output() onDelete = new EventEmitter<any>();
+
+	protected onDeleteClicked() {
+		this.onDelete.emit(true);
+	}
 }

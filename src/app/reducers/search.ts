@@ -17,7 +17,6 @@ const initialState: SearchState = <SearchState>{
 export default function(state: SearchState = initialState, action: Action): SearchState {
 	switch (action.type) {
 		case WineActions.SEARCH: {
-			console.log('Search for', action.payload);
 			return {
 				query: action.payload,
 				loading: true

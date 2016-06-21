@@ -28,6 +28,11 @@ export class Application {
 	protected query$: Observable<WineQuery>;
 	protected loading$: Observable<boolean>;
 
+	protected wineList: Wine[];
+	protected selectedWine: Wine;
+	protected query: WineQuery;
+	protected loading: boolean;
+
 	@ViewChild(WineViewComponent) view: WineViewComponent;
 	@ViewChild(ConfirmDialogComponent) confirmDialog: ConfirmDialogComponent;
 
@@ -36,6 +41,11 @@ export class Application {
 		this.selectedWine$ = this._store.let(getSelectedWine());
 		this.query$ = this._store.let(getQuery());
 		this.loading$ = this._store.let(isLoading());
+
+		this.loading$.subscribe((val) => this.loading = val);
+		this.wineList$.subscribe((val) => this.wineList = val);
+		this.selectedWine$.subscribe((val) => this.selectedWine = val);
+		this.query$.subscribe((val) => this.query = val);
 	}
 
 	selectWine(wine: Wine) {

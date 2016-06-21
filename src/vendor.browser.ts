@@ -16,6 +16,8 @@ import '@angular/router-deprecated';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+import 'npm-polymer-elements/webcomponentsjs/webcomponents';
+
 if ('production' === ENV) {
 	require("vulcanize?compress=false&base=.!./polymer-imports.html");
 } else {

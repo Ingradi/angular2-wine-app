@@ -18,7 +18,6 @@ export class WinesService {
 			.map((key) => `${key}=${query[key]}`)
 			.join('&');
 		return this._http.get(`${this._apiUrl}${queryString}`)
-			.do(res => console.log('Search response', res))
 			.map(res => res.json());
 	}
 
@@ -28,13 +27,11 @@ export class WinesService {
 			apiCall = this._http.put(`${this._apiUrl}/${wine.id}`, wine);
 		}
 		return apiCall
-			.do(res => console.log('Save response', res))
 			.map(res => res.json());
 	}
 
 	deleteWine(wine: Wine): Observable<any> {
 		return this._http.delete(`${this._apiUrl}/${wine.id}`)
-			.do(res => console.log('Delete response', res))
 			.map(res => res.json());
 	}
 }

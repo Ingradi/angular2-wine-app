@@ -54,8 +54,6 @@ let winesListReducer = (state: Wine[] = [], action: Action): Wine[] => {
 			return action.payload;
 		}
 		case WineActions.DELETE_WINE_COMPLETE: {
-			console.log('Deleted', action.payload);
-			console.log('In list', state, state.some(wine => wine.id === action.payload.id));
 			let deletedWine = action.payload;
 			if (state.some(wine => wine.id === deletedWine.id)) {
 				state.splice(state.findIndex(wine => wine.id === deletedWine.id), 1);

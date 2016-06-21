@@ -19,6 +19,7 @@ export class WineFilterComponent {
 	protected model: FormGroup;
 	@ViewChild('dialog') protected dialog: ElementRef;
 
+	protected queryFields: Array<{key: string; label: string, value: string}> = [];
 	private _query: WineQuery;
 
 	@Output() onChanged = new EventEmitter<WineQuery>();
@@ -34,6 +35,7 @@ export class WineFilterComponent {
 
 	@Input() set query(filter: WineQuery) {
 		this._query = filter;
+		this.queryFields = this.updateQueryFields();
 		this._updateModel();
 	}
 
@@ -42,7 +44,7 @@ export class WineFilterComponent {
 		this.dialog.nativeElement.open();
 	}
 
-	protected get queryFields(): Array<{key: string; label: string, value: string}> {
+	protected updateQueryFields(): Array<{key: string; label: string, value: string}> {
 		if (isBlank(this._query)) {
 			return [];
 		}
